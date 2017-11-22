@@ -17,6 +17,7 @@
     <!-- font awesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/style.css">
   </head>
     <div class="container col-sm-8 col-sm-offset-2">
       <div id="taskApp">
@@ -45,9 +46,9 @@
 
           <tbody>
             <tr v-for='task in tasks'>
-              <td><input type="checkbox"></td>
-              <td>{{task.name}}</td>
-              <td><button class="btn btn-danger btn-block">Delete</button></td>
+              <td><input type="checkbox" v-model="task.read"></td>
+              <td><span :class="{read: task.read}">{{task.name}}</span></td>
+              <td><button class="btn btn-danger btn-block" v-on:click="deleteItem(task)">Delete</button></td>
             </tr>
           </tbody>
         </table>
